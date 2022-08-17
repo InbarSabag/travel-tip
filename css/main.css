@@ -16,8 +16,9 @@
 
 /* COMPONENTS */
     /* every part of the page - has a css file contains settings (exp: header, main, footer) */
-    @import "components/part1.css";
-    @import "components/part2.css";
+    @import "components/header.css";
+    @import "components/main.css";
+    @import "components/footer.css";
 /* ...CHANGE & ADD MORE... */
 
 
