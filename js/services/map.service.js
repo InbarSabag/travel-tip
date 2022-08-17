@@ -1,19 +1,17 @@
-// import { appController } from "../app.controller"
-// import { appController } from '../app.controller'
 
 export const mapService = {
     initMap,
     addMarker,
-    panTo,    
+    panTo,
+    addMarker  
 }
 
-// todo 3: create pickLoc - 
-// todo 7: loc service deleteLoc(id)
-
+//**** VARIABLES: *********************************************//
 // Var that is used throughout this Module (not global)
 var gMap
 var gLoc
 
+//**** FUNCTIONS: *********************************************//
 function initMap(lat = 32.0749831, lng = 34.9120554) {
     console.log('InitMap')
     return _connectGoogleApi()
@@ -27,7 +25,7 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
             gMap.addListener("click", (mapsMouseEvent) => {
                 gLoc = JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
                 // console.log('gLoc:', mapsMouseEvent.pixel)
-
+                
                 const locationObj = mapsMouseEvent.pixel
                 console.log('locationObj:', locationObj)
                 
@@ -46,12 +44,16 @@ function addMarker(loc) {
 
 function panTo(lat, lng) {
     var laLatLng = new google.maps.LatLng(lat, lng)
+    console.log('🚀 ~ panTo ~ laLatLng', laLatLng)
     gMap.panTo(laLatLng)
+    addMarker(laLatLng)
+    
 }
 
+//**** INTERNAL FUNCTIONS: ************************************//
 function _connectGoogleApi() {
     if (window.google) return Promise.resolve()
-    const API_KEY = 'AIzaSyCZgpQ_vg2i1aM6vvhrzJgfBnNAQd02fD8' //TODO: Enter your API Key
+    const API_KEY = 0
     var elGoogleApi = document.createElement('script')
     elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`
     elGoogleApi.async = true
