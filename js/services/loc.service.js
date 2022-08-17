@@ -11,6 +11,7 @@ export const locService = {
 import { storageService } from './storage.service.js'
 import { utilService } from './util.service.js'
 
+
 //**** VARIABLES: *********************************************//
 const gLocs = []
 const STORAGE_KEY = 'locsDB'
