@@ -28,6 +28,8 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
                 
                 const locationObj = mapsMouseEvent.pixel
                 console.log('locationObj:', locationObj)
+
+
                 
             })
         })
@@ -53,7 +55,7 @@ function panTo(lat, lng) {
 //**** INTERNAL FUNCTIONS: ************************************//
 function _connectGoogleApi() {
     if (window.google) return Promise.resolve()
-    const API_KEY = 0
+    const API_KEY = 0 //TODO: Enter your API Key
     var elGoogleApi = document.createElement('script')
     elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`
     elGoogleApi.async = true

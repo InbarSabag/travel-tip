@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelTip</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
     <header>
         <h1>TravelTip</h1>
+        <label for="">
+            <button>Search</button>
+            <input class="search-ber" type="text" placeholder="Search" onchange="onFindLoc()">
+        </label>
     </header>
     <div class="loc-cards-container">
 
     </div>
     <main class="flex justify-center column">
         <div class="map">
-            <div id="map"  style="width: 100%; height: 400px;"></div>
+            <div id="map" style="width: 100%; height: 400px;"></div>
             <button onclick="onGetUserPos()" class="btn btn-user-pos">🎯</button>
         </div>  
         
 
         <div class="info">
-        <button onclick="onAddMarker()" class="btn btn-add-marker">Add Marker Speific Location</button>
-        <button onclick="onGetLocs()" class="btn btn-get-locs">Get Locations</button>
-        <button onclick="onPanTo()"class="btn btn-pan">Pan Map to Tokyo</button>
-        
-        <p>You are at: <span class="user-pos"></span></p>
-        <p>Locations: 
+            <button onclick="onAddMarker()" class="btn btn-add-marker">Add Marker Speific Location</button>
+            <button onclick="onGetLocs()" class="btn btn-get-locs">Get Locations</button>
+            <button onclick="onPanTo()" class="btn btn-pan">Pan Map to Tokyo</button>
+
+            <p>You are at: <span class="user-pos"></span></p>
+            <p>Locations:
             <pre class="locs"></pre>
-        </p>
-    </div>
+            </p>
+        </div>
     </main>
 
     <footer>
         <h4>© All rights reserved to Inbar S & Omer R </h4>
     </footer>
-        
 
-    <script  src="/lib/swal/swal.js"></script>
+
+    <script src="/lib/swal/swal.js"></script>
+    <script src="/lib/axios/axios.js"></script>
     <script type="module" src="js/app.controller.js"></script>
 </body>
+
 </html>
