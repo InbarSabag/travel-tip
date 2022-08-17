@@ -1,0 +1,28 @@
+
+main{
+    align-items: end;
+}
+
+.map{
+    width: 70%;
+    min-width: 500px;
+    /* align-items: flex-start; */
+    /* position: fixed;
+    right: 0; */
+}
+
+.btn-user-pos{
+    position: relative;
+    bottom: 50px;
+    left:5px;
+    background-color: #ffffff;
+    border-radius:0px ;
+    border:none;
+    height: 40px;
+    width: 40px;
+    font-size: 1.5em;
+}
+
+.btn{
+    cursor: pointer;
+}

@@ -11,6 +11,7 @@ window.onGetUserPos = onGetUserPos
 // todo 6: render table of locations renderLocList(list) . 7: action column with go and delete byns
 // todo 7: onGoToLoc(id) -> loc service getLocByID(id) -> map service panTo(lat, lng)
 // todo 7: onDelete(id) -> loc service deleteLoc(id) 
+// todo: render marker 
 
 function onInit() {
     mapService.initMap()

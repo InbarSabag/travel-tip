@@ -1,0 +1,9 @@
+header{
+    text-align: center;
+    background-color: var(--clr1);
+    padding: 20px;
+}
+
+h1{
+    color: var(--clr2);
+}
