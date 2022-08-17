@@ -1,13 +1,14 @@
-
 export const locService = {
     getLocs,
     createLoc,
     createLocList,
     getLocs,
     getLocByID,
-    deleteLoc
+    deleteLoc,
+    findLoc
 }
 
+import { mapService } from './map.service.js'
 import { storageService } from './storage.service.js'
 import { utilService } from './util.service.js'
 
@@ -56,4 +57,16 @@ function deleteLoc(id){
     const idxToDelete = gLocs.findIndex(loc => loc.id === id)
     gLocs.splice(idxToDelete,1)
     storageService.save(STORAGE_KEY, gLocs)
+}
+
+function findLoc(val){
+    const API_KEY = 0
+    return axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${val},+CA&key=${API_KEY}`)
+    .then(res => {
+        const prmLoc = res.data
+        const lat = prmLoc.results[0].geometry.location.lat
+        const lng = prmLoc.results[0].geometry.location.lng
+        
+        mapService.panTo(lat, lng)        
+    })
 }

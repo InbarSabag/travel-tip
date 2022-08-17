@@ -1,16 +1,12 @@
 import { locService } from './services/loc.service.js'
 import { mapService } from './services/map.service.js'
 
-export const appController = {
-    renderLocationModal,
-}
-
-
 window.onload = onInit
 window.onAddMarker = onAddMarker
 window.onPanTo = onPanTo
 window.onGetLocs = onGetLocs
 window.onGetUserPos = onGetUserPos
+window.onFindLoc = onFindLoc
 
 // todo 3: create onPickLoc -  render marker, and modal with lat&lng , send the lat & lng to loc service  pickLoc()
 // todo 6: render table of locations renderLocList(list) . 7: action column with go and delete byns
@@ -42,10 +38,10 @@ function onAddMarker() {
 
 
 function onGetLocs() {
-        locService.getLocs()
+    locService.getLocs()
         .then(locs => {
-        console.log('Locations:', locs)
-        document.querySelector('.locs').innerText = JSON.stringify(locs, null, 2)
+            console.log('Locations:', locs)
+            document.querySelector('.locs').innerText = JSON.stringify(locs, null, 2)
         })
 }
 
@@ -67,7 +63,8 @@ function onPanTo() {
     mapService.panTo(35.6895, 139.6917)
 }
 
-function renderLocationModal(loc){
-    console.log('loc:', loc)
+function onFindLoc(){
+    const elSearchBar = document.querySelector('.search-ber').value
+    locService.findLoc(elSearchBar)
     
 }
