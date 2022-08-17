@@ -4,6 +4,8 @@ export const mapService = {
     panTo
 }
 
+// todo 3: create pickLoc - 
+// todo 7: loc service deleteLoc(id)
 
 // Var that is used throughout this Module (not global)
 var gMap
@@ -39,7 +41,7 @@ function panTo(lat, lng) {
 
 function _connectGoogleApi() {
     if (window.google) return Promise.resolve()
-    const API_KEY = '' //TODO: Enter your API Key
+    const API_KEY = 'AIzaSyBL6RzHp3wS6XNPzEV4uY5nVzb7E76WI6s'
     var elGoogleApi = document.createElement('script')
     elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`
     elGoogleApi.async = true
