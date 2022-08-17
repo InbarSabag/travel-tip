@@ -17,8 +17,10 @@
 /* COMPONENTS */
     /* every part of the page - has a css file contains settings (exp: header, main, footer) */
     @import "components/header.css";
-    @import "components/main.css";
+    @import "components/main-container.css";
     @import "components/footer.css";
+    @import "components/loc-cards.css";
+    
 /* ...CHANGE & ADD MORE... */
 
 

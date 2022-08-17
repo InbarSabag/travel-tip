@@ -2,8 +2,12 @@
 
 :root {
     /* color plate */
-    --clr1: #f8f8f8;
-    --clr2: #1d1d1d;
+    --clr1: #e6e6e6;
+    --clr2: #5491F5;
+    --clr3: #FDE293;
+    --clr4: #78909C;
+    --clr5: #C1E4CB;
+
 
     
     /* mq variables */
