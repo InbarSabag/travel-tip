@@ -12,13 +12,15 @@ import { mapService } from './map.service.js'
 import { storageService } from './storage.service.js'
 import { utilService } from './util.service.js'
 
+// todo 3: create pickLoc - 
+
 //**** VARIABLES: *********************************************//
-const gLocs = []
+let gLocs = []
 const STORAGE_KEY = 'locsDB'
 
 //**** FUNCTIONS: *********************************************//
 function createLoc(name, lat, lng) {
-    const loc = {
+    let loc = {
         id: utilService.makeId(),
         name,
         lat,
@@ -26,19 +28,21 @@ function createLoc(name, lat, lng) {
         createdAt: Date.now(),
         updatedAt: Date.now()
     }
+    gLocs.push(loc)
     storageService.save(STORAGE_KEY, gLocs)
     return loc
 }
 
 function createLocList() {
-    if(storageService.load(STORAGE_KEY)){
+    if(storageService.load(STORAGE_KEY) || storageService.load(STORAGE_KEY) === [] ){
         gLocs = storageService.load(STORAGE_KEY)
     } 
     else{
-        gLocs.push(createLoc('Greatplace', 32.047104, 34.832384))
-        gLocs.push(createLoc('Neveragain', 33.047104, 35.832384))
+        createLoc('Greatplace', 32.047104, 34.832384)
+        createLoc('Neveragain', 33.047104, 35.832384)
     }
-    console.log('🚀 ~ _createLocList ~ gLocs', gLocs)
+    storageService.save(STORAGE_KEY, gLocs)
+    console.log('🚀 ~ createLocList ~ gLocs', gLocs)
 }
 
 function getLocs() {

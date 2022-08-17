@@ -1,25 +1,25 @@
 import { locService } from './services/loc.service.js'
 import { mapService } from './services/map.service.js'
 
+
+
 window.onload = onInit
 window.onAddMarker = onAddMarker
 window.onPanTo = onPanTo
 window.onGetLocs = onGetLocs
 window.onGetUserPos = onGetUserPos
-window.onFindLoc = onFindLoc
 
-// todo 3: create onPickLoc -  render marker, and modal with lat&lng , send the lat & lng to loc service  pickLoc()
-// todo 6: render table of locations renderLocList(list) . 7: action column with go and delete byns
-// todo 7: onGoToLoc(id) -> loc service getLocByID(id) -> map service panTo(lat, lng)
-// todo 7: onDelete(id) -> loc service deleteLoc(id) 
-// todo: render marker 
+
+//**** FUNCTIONS: *********************************************//
 
 function onInit() {
+    locService.createLocList()
     mapService.initMap()
         .then(() => {
             console.log('Map is ready')
         })
         .catch(() => console.log('Error: cannot init map'))
+    renderLocList()
 }
 
 // This function provides a Promise API to the callback-based-api of getCurrentPosition
@@ -30,12 +30,10 @@ function getPosition() {
     })
 }
 
-
 function onAddMarker() {
     console.log('Adding a marker')
     mapService.addMarker({ lat: 32.0749831, lng: 34.9120554 })
 }
-
 
 function onGetLocs() {
     locService.getLocs()
@@ -45,13 +43,15 @@ function onGetLocs() {
         })
 }
 
-// todo 8: pan the map to the user’s location by using panTo(pos.coords.latitude,pos.coords.longitude)
+
 function onGetUserPos() {
     getPosition()
         .then(pos => {
             console.log('User position is:', pos.coords)
             document.querySelector('.user-pos').innerText =
                 `Latitude: ${pos.coords.latitude} - Longitude: ${pos.coords.longitude}`
+            onGoToLoc(pos.coords.latitude, pos.coords.longitude)
+            panTo(pos.coords.latitude, pos.coords.longitude)
         })
         .catch(err => {
             console.log('err!!!', err)
@@ -63,8 +63,7 @@ function onPanTo() {
     mapService.panTo(35.6895, 139.6917)
 }
 
-function onFindLoc(){
-    const elSearchBar = document.querySelector('.search-ber').value
-    locService.findLoc(elSearchBar)
+function renderLocationModal(loc){
+    console.log('loc:', loc)
     
 }
