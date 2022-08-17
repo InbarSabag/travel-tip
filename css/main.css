@@ -1,0 +1,26 @@
+/* BASIC */
+    /* base - contains only TAGS and not CLASS */
+    @import "basic/base.css";
+    /* helpers - contains only CLASS that helps design */
+    @import "basic/helpers.css";
+    /* layouts - the structure of the page */
+    @import "basic/layouts.css";
+
+
+/* SETUP */
+    /* vars - set variables */
+    @import "setup/vars.css";
+    /* typography - set fonts */
+    @import "setup/typography.css";
+
+
+/* COMPONENTS */
+    /* every part of the page - has a css file contains settings (exp: header, main, footer) */
+    @import "components/part1.css";
+    @import "components/part2.css";
+/* ...CHANGE & ADD MORE... */
+
+
+/* MEDIA QUERTY */
+    @import "media query/mq.css";
+

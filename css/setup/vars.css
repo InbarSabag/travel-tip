@@ -1,0 +1,18 @@
+/* vars */
+
+:root {
+    /* color plate */
+    --clr1: #f8f8f8;
+    --clr2: #1d1d1d;
+
+    
+    /* mq variables */
+    --large: 980px;
+    --medium: 860px;
+    --small: 500px;
+
+
+    /* letter spacing */
+    /* --normal-letter-spacing: 0.03em; */
+    /* --large-letter-spacing: 0.05em; */
+}

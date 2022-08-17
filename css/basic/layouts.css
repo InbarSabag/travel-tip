@@ -1,0 +1,8 @@
+/* LAYOUTS */
+
+/* 
+.main-layout > *:not(.full) {
+    max-width: var(--large);
+    margin-inline-end: auto;
+    margin-inline-start: auto;
+} */

@@ -1,0 +1,11 @@
+/* typography */
+
+@font-face {
+    /* font-family: eurofurence; */
+    /* src: url(../fonts/eurofurence/eurof55.ttf); */
+}
+
+@font-face {
+    font-family: fa;
+    src: url(../fonts/fontAwesome/fa-brands-400.ttf);
+}
